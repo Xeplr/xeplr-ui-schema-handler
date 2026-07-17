@@ -5,12 +5,12 @@ import '@xeplr/ui-schema-handler/src/styles.css';
 import './App.css';
 
 const STARTER_SCHEMA = [
-  { name: 'name',      type: 'string',  required: true, order: 1, description: 'Full name of the applicant.' },
-  { name: 'age',       type: 'number',                  order: 2, default: 30 },
-  { name: 'active',    type: 'boolean',                 order: 3, default: true, description: 'Include in mailings.' },
-  { name: 'startDate', type: 'date',                    order: 4 },
-  { name: 'tags',      type: 'array',                   order: 5, description: 'Free-form tags array.' },
-  { name: 'address',   type: 'object',                  order: 6, description: 'Postal address.' }
+  { name: 'VendorAccount', type: 'string',  required: true,  order: 10 },
+  { name: 'InvoiceNumber', type: 'string',  required: true,  order: 20 },
+  { name: 'InvoiceDate',   type: 'date',    required: true,  order: 30 },
+  { name: 'CurrencyCode',  type: 'string',                   order: 40, default: 'USD' },
+  { name: 'CreditAmount',  type: 'number',                   order: 50 },
+  { name: 'IsPaid',        type: 'boolean',                  order: 60, default: false, description: 'Marks a paid invoice for exclusion.' }
 ];
 
 export default function App() {

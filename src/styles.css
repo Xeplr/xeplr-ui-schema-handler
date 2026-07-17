@@ -1,24 +1,20 @@
-/* Minimal, unopinionated defaults. Every class is `xeplr-shf-*` so
+/* Minimal, unopinionated defaults. All rules prefixed `xeplr-shf-*` so
    consumers can restyle without conflict. Import optional. */
 
+/* ─── DynamicForm ─── */
 .xeplr-shf-form { display: flex; flex-direction: column; gap: 14px; }
-
 .xeplr-shf-field {
   display: flex; flex-direction: column; gap: 4px;
   font: 13px/1.4 system-ui, sans-serif; color: #333;
 }
-.xeplr-shf-label {
-  display: flex; align-items: center; gap: 6px; font-weight: 500;
-}
+.xeplr-shf-label { display: flex; align-items: center; gap: 6px; font-weight: 500; }
 .xeplr-shf-required { color: #c00; font-weight: 700; }
 .xeplr-shf-type {
   color: #888; font-weight: 400; font-size: 11px;
-  background: #f0f0f0; padding: 1px 6px; border-radius: 3px;
-  margin-left: auto;
+  background: #f0f0f0; padding: 1px 6px; border-radius: 3px; margin-left: auto;
 }
 .xeplr-shf-desc { color: #666; font-size: 12px; }
 .xeplr-shf-err  { color: #c00; font-size: 12px; }
-
 .xeplr-shf-input {
   padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px;
   font: inherit; background: #fff;
@@ -26,35 +22,66 @@
 .xeplr-shf-input:focus { outline: 2px solid #646cff; outline-offset: -1px; }
 .xeplr-shf-input--check { width: auto; }
 .xeplr-shf-input--json { font-family: ui-monospace, Consolas, monospace; font-size: 12px; resize: vertical; }
-
 .xeplr-shf-field--error .xeplr-shf-input { border-color: #c00; }
 
-/* SchemaEditor / FieldEditor */
-.xeplr-shf-schema-editor { display: flex; flex-direction: column; gap: 10px; }
-.xeplr-shf-empty { color: #999; font-style: italic; }
-.xeplr-shf-field-editor {
-  border: 1px solid #e0e0e0; border-radius: 6px;
-  padding: 10px; background: #fafafa;
+/* ─── SchemaEditor (table) ─── */
+.xeplr-shf-table-wrap { font-family: system-ui, sans-serif; color: #222; }
+.xeplr-shf-table {
+  width: 100%; border-collapse: collapse; font-size: 13px;
+  border: 1px solid #e0e5ee; border-radius: 6px; overflow: hidden;
+  background: #fff;
 }
-.xeplr-shf-fe-row {
-  display: grid; grid-template-columns: 2fr 1.2fr 0.8fr 0.6fr auto;
-  gap: 10px; align-items: end; margin-bottom: 8px;
+.xeplr-shf-table thead th {
+  background: #eaf1fb;
+  text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px;
+  color: #4a5b78; letter-spacing: 0.5px;
+  padding: 10px 12px; border-bottom: 1px solid #d5deee;
 }
-.xeplr-shf-fe-row:last-child {
-  grid-template-columns: 3fr 1.5fr; margin-bottom: 0;
+.xeplr-shf-th-move,
+.xeplr-shf-th-remove { width: 32px; padding: 10px 4px; }
+.xeplr-shf-th-center { text-align: center !important; }
+
+.xeplr-shf-tr td { padding: 6px 8px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; }
+.xeplr-shf-tr:last-child td { border-bottom: none; }
+.xeplr-shf-tr:hover td { background: #fafbfd; }
+.xeplr-shf-empty-row { text-align: center; color: #999; font-style: italic; padding: 16px !important; }
+
+.xeplr-shf-td-move { text-align: center; white-space: nowrap; padding: 0 !important; }
+.xeplr-shf-td-center { text-align: center; }
+.xeplr-shf-td-remove { text-align: center; width: 32px; }
+
+.xeplr-shf-inp {
+  width: 100%; box-sizing: border-box;
+  padding: 6px 8px; border: 1px solid transparent; border-radius: 4px;
+  font: inherit; background: transparent;
 }
-.xeplr-shf-fe-cell { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: #555; }
-.xeplr-shf-fe-cell--check { flex-direction: row; align-items: center; gap: 6px; padding-bottom: 6px; }
-.xeplr-shf-fe-cell--order input { width: 60px; }
-.xeplr-shf-fe-cell--wide { grid-column: span 1; }
-.xeplr-shf-fe-remove {
-  border: none; background: #eee; color: #c00; cursor: pointer;
-  width: 28px; height: 28px; border-radius: 4px; font-size: 18px; line-height: 1;
+.xeplr-shf-inp:hover  { border-color: #e0e5ee; }
+.xeplr-shf-inp:focus  { outline: none; border-color: #646cff; background: #fff;
+  box-shadow: 0 0 0 2px rgba(100,108,255,0.15); }
+.xeplr-shf-inp--code  { font-family: ui-monospace, Consolas, monospace; font-weight: 500; }
+.xeplr-shf-inp--type  { padding-right: 20px; }
+.xeplr-shf-inp--muted::placeholder { color: #aaa; font-style: italic; }
+
+.xeplr-shf-chk { width: 16px; height: 16px; cursor: pointer; }
+
+.xeplr-shf-move {
+  border: none; background: transparent; cursor: pointer;
+  color: #8a95a8; font-size: 14px; line-height: 1;
+  padding: 2px 6px; border-radius: 3px;
 }
-.xeplr-shf-fe-remove:hover { background: #fdd; }
+.xeplr-shf-move:hover:not(:disabled) { background: #eef2f7; color: #333; }
+.xeplr-shf-move:disabled { opacity: 0.25; cursor: default; }
+
+.xeplr-shf-x {
+  border: none; background: transparent; cursor: pointer;
+  color: #d04040; font-size: 18px; line-height: 1;
+  padding: 4px 8px; border-radius: 3px;
+}
+.xeplr-shf-x:hover { background: #fdecec; }
+
 .xeplr-shf-add-btn {
-  align-self: flex-start;
-  padding: 6px 12px; border: 1px dashed #999; background: transparent;
-  border-radius: 4px; cursor: pointer; color: #555; font: inherit;
+  margin-top: 10px; padding: 6px 12px;
+  border: 1px dashed #b6c0d1; background: transparent;
+  border-radius: 4px; cursor: pointer; color: #4a5b78; font: inherit; font-size: 13px;
 }
 .xeplr-shf-add-btn:hover { border-color: #646cff; color: #646cff; }
