@@ -1,0 +1,15 @@
+body { margin: 0; font-family: system-ui, sans-serif; background: #f7f7f8; color: #222; }
+.app { max-width: 1400px; margin: 0 auto; padding: 24px; }
+.app header h1 { margin: 0 0 4px; font-size: 22px; }
+.app header p { color: #666; margin: 0 0 20px; font-size: 14px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+.col { background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; padding: 16px; }
+.col h2 { font-size: 14px; margin: 0 0 12px; color: #444; font-weight: 600; }
+button { padding: 8px 14px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; font: inherit; }
+button:hover { background: #f0f0f0; }
+button.primary { background: #646cff; color: #fff; border-color: #646cff; }
+button.primary:hover { background: #535bf2; }
+pre { background: #f4f4f6; padding: 10px; border-radius: 4px; overflow: auto; font-size: 12px; margin: 0; }
+pre.ok  { background: #e8f5e8; }
+pre.err { background: #ffecec; }
+@media (max-width: 900px) { .cols { grid-template-columns: 1fr; } }
