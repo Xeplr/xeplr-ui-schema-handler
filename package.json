@@ -1,15 +1,28 @@
 {
   "name": "@xeplr/ui-schema-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React components for @xeplr/schema-handler — DynamicForm, SchemaEditor, FieldEditor",
   "type": "module",
   "main": "src/index.js",
-  "files": ["src/"],
-  "keywords": ["schema", "form", "react", "dynamic-form", "field-editor"],
+  "files": [
+    "src/"
+  ],
+  "keywords": [
+    "schema",
+    "form",
+    "react",
+    "dynamic-form",
+    "field-editor"
+  ],
   "author": "xeplr",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/Xeplr/xeplr-ui-schema-handler" },
-  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xeplr/xeplr-ui-schema-handler"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "@xeplr/schema-handler": "^1.0.0"
