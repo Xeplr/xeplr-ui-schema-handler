@@ -1,6 +1,6 @@
 {
   "name": "@xeplr/ui-schema-handler",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React components for @xeplr/schema-handler — DynamicForm, SchemaEditor, FieldEditor",
   "type": "module",
   "main": "src/index.js",
